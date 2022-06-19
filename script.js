@@ -95,5 +95,8 @@ function verifyEndGame() {
     }
   }
 }
+function comparador() {
+  return Math.random() - 0.5;
+}
 askCardNumber();
 generateCardGame();
