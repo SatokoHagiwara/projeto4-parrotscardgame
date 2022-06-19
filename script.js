@@ -9,6 +9,13 @@ let cardName = [
   "unicornparrot",
 ];
 let cardGame = [];
+let firstCardTurned;
+let secondCardTurned;
+let numberCardsTurned = 0;
+let cardsGottenRight = 0;
+let timer = 0;
+let idTimer;
+
 function askCardNumber() {
   cardNumber = parseInt(prompt("Com quantas cartas você quer jogar?"));
   while (
@@ -79,7 +86,7 @@ function turnCardsOver() {
 function resetCards() {
   firstCardTurned = undefined;
   secondCardTurned = undefined;
-} 
+}
 function verifyEndGame() {
   if (cardsGottenRight === cardNumber) {
     clearInterval(idTimer);
