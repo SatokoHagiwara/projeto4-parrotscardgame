@@ -35,16 +35,46 @@ function renderCards() {
   for (let i = 0; i < cardGame.length; i++) {
     let cardTemplate = `
             <li class="card" onClick="turnCards(this)">
-                <div class='front-face face'>
-                    <img src='images/front.png'>
+                <div class="front-face face">
+                    <img src="images/front.png">
                 </div>
-                <div class='back-face face'>
-                    <img src='images/${cardGame[i]}.gif'>
+                <div class="back-face face">
+                    <img src="images/${cardGame[i]}.gif">
                 </div>
             </li>
         `;
     cardsContainer.innerHTML += cardTemplate;
   }
+}
+function turnCards(clickedCard) {
+  if (firstCardTurned === undefined && numberCardsTurned === 0) {
+    startTimer();
+  }
+  if (
+    clickedCard.classList.contains("card-turn") ||
+    secondCardTurned !== undefined
+  ) {
+    return;
+  }
+  numberCardsTurned++;
+  clickedCard.classList.add("card-turn");
+  if (firstCardTurned === undefined) {
+    firstCardTurned = clickedCard;
+  } else {
+    secondCardTurned = clickedCard;
+    if (firstCardTurned.innerHTML === secondCardTurned.innerHTML) {
+      cardsGottenRight += 2;
+      verifyEndGame();
+      resetCards();
+    } else {
+      setTimeout(turnCardsOver, 1000);
+    }
+  }
+}
+function turnCardsOver() {
+  firstCardTurned.classList.remove("card-turn");
+  secondCardTurned.classList.remove("card-turn");
+  resetCards();
 }
 askCardNumber();
 generateCardGame();
