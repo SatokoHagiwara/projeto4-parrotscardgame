@@ -13,7 +13,7 @@ ul {
   text-align: center;
 }
 h1 {
-  color: #75b79e;
+  color: rgb(117, 183, 158, 0.8);
   font-size: 56px;
   font-weight: bold;
   margin-right: 40px;
@@ -57,6 +57,9 @@ header {
   align-items: center;
   display: flex;
   justify-content: space-around;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 .cronometer {
   align-items: center;
@@ -82,16 +85,16 @@ header {
 }
 @media (max-width: 736px) {
   header {
-    width: 100%;
     padding: 5px;
+    width: 100%;
   }
   h1 {
     font-size: 26px;
     margin-right: 10px;
   }
   .cronometer {
-    width: 50px;
-    height: 50px;
     font-size: 22px;
+    height: 50px;
+    width: 50px;
   }
 }
