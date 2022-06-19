@@ -76,5 +76,24 @@ function turnCardsOver() {
   secondCardTurned.classList.remove("card-turn");
   resetCards();
 }
+function resetCards() {
+  firstCardTurned = undefined;
+  secondCardTurned = undefined;
+} 
+function verifyEndGame() {
+  if (cardsGottenRight === cardNumber) {
+    clearInterval(idTimer);
+    setTimeout(
+      alert,
+      1000,
+      `Você venceu em ${numberCardsTurned} jogadas e em ${timer} segundos`
+    );
+
+    const wantToPlayAgain = prompt("Você quer jogar novamente?");
+    if (wantToPlayAgain === "sim") {
+      window.location.reload();
+    }
+  }
+}
 askCardNumber();
 generateCardGame();
