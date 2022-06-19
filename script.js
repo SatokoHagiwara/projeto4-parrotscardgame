@@ -100,3 +100,9 @@ function comparador() {
 }
 askCardNumber();
 generateCardGame();
+function startTimer() {
+  idTimer = setInterval(function () {
+    timer++;
+    document.querySelector(".cronometer").innerHTML = timer;
+  }, 1000);
+}
